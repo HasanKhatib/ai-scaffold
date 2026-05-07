@@ -3,7 +3,8 @@
 ## Always apply
 
 - Read `CLAUDE.md` before starting any session
-- Update `docs/next.md` at the end of every session
+- Update `docs/next.md` at the end of every session — summarize where things stand, the immediate next step, open threads, and decisions made
+- Update `docs/roadmap.md` phase status whenever a layer is completed or its status changes
 - Never delete or overwrite `prd.md` without explicit instruction
 - Keep `template/` files free of project-specific language (no repo names, no live paths, no filled-in placeholders)
 

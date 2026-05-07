@@ -6,21 +6,20 @@
 
 | Phase | Layer | Status | Signal |
 |---|---|---|---|
-| 1 | GitHub Template + degit | 🔵 In progress | `npx degit hasankhatib/ai-scaffold/template` works cleanly |
-| 2 | Claude Code Skill | ⬜ Not started | `/ai-scaffold` installs in <60s, correct seats chosen |
-| 3 | npm CLI | ⬜ Not started | `npm create ai-scaffold` works end-to-end |
+| 1 | GitHub Template + degit | ✅ Done | `npx degit HasanKhatib/ai-scaffold/template` works cleanly — `v0.1.1` tagged |
+| 2 | OpenCode Skill | ✅ Done | Skill installs globally, 3/4 project types tested, clean summary output — `v0.2.0` tagged |
+| 3 | npm CLI | 🔵 In progress | `npm create ai-scaffold` works end-to-end |
 | 4 | CI/CD | ⬜ Not started | One tag publishes all distribution channels |
 
 ## Demand gate
 
-> Layers 2–4 are worth full investment only after: **10+ GitHub stars** or **3+ people using it unprompted**
+> Layers 3–4 are worth full investment only after: **10+ GitHub stars** or **3+ people using it unprompted**
 
 ## Current focus
 
-Layer 1 — writing all root live files and `template/` distributable files.
+Layer 3 — `npm create ai-scaffold` CLI: 5-question interview, generates `SCAFFINIT.md` prompt for the user's LLM.
 
 ## Deferred
 
 - GitHub Action for drift detection (teams only)
-- OpenCode plugin (evaluate after Layer 2)
 - Web configurator (evaluate after Layer 3 adoption)
