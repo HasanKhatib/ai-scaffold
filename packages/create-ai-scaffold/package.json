@@ -1,6 +1,6 @@
 {
-  "name": "create-ai-scaffold",
-  "version": "0.1.0",
+  "name": "@hasankhatib/create-ai-scaffold",
+  "version": "0.3.0",
   "description": "Initialize structured AI collaboration in any repo — agent-agnostic dispatch, council deliberation, session handoff.",
   "type": "module",
   "bin": {

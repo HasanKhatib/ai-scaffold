@@ -378,9 +378,7 @@ ${description}
 
 ## Dev commands
 
-\`\`\`bash
-# Add your project's commands here
-\`\`\`
+<!-- Add your project's key commands here (e.g. npm run dev, pytest, make build) -->
 
 ## Hard rules
 

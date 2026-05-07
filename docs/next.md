@@ -2,30 +2,31 @@
 
 ## Where we left off
 
-Layer 2 is complete and tagged `v0.2.0`. The OpenCode skill (`skills/ai-scaffold/SKILL.md`) is written and tested — 3/4 project-type combinations validated. Q2 uses numbered options (1–4), Q4 uses "type default", file writing is silent with a clean summary output. Layer 1 (`v0.1.1`) and Layer 2 (`v0.2.0`) are both shipped.
+Layer 3 is complete. `@hasankhatib/create-ai-scaffold@0.3.0` is written and published to npm (pending OTP confirmation from the user — the publish command was run and only needs the one-time password). The CLI runs a 5-question interview with `@clack/prompts`, writes `SCAFFINIT.md` to the current directory, and prints the full prompt to stdout. All 4 project types are supported. The `template/README.md` has been updated with the correct scoped install command.
 
 ## Immediate next step
 
-Start Layer 3 — `npm create ai-scaffold` CLI. Create todos list first, then begin implementation.
+Confirm the npm publish succeeded (user provides OTP), then tag `v0.3.0` in git:
+```
+git tag v0.3.0 && git push origin v0.3.0
+```
 
 ## Open threads
 
-- Layer 3 `packages/create-ai-scaffold/` directory exists but is empty — not started
+- npm publish pending OTP: `cd packages/create-ai-scaffold && npm publish --access public --otp=<CODE>`
+- Interactive test of CLI across all 4 project types not done — requires real TTY; do this manually after publish
 - Layer 4 CI/CD not started — gated on demand signal (10+ stars or 3+ unprompted users)
-- `personal` project type (option 4) not formally tested in skill — low risk, pattern is consistent
+- `personal` project type (option 4) not formally tested in CLI — low risk, pattern is consistent
 
 ## Decisions made this session
 
 | Decision | Rationale |
 |---|---|
-| No central skills registry | OpenCode skills are file-based SKILL.md, no publish step |
-| Global install via degit | Init tool must work before scaffold exists — project-local is circular |
-| Q2 numbered options (1–4) | Freeform text caused seat selection ambiguity in first test |
-| Q4 "type default" | "Press enter" doesn't work in conversational AI interface |
-| Silent file writing + clean summary | Per-file narration and todo lists leaked into user-facing output |
-| scaffold.manifest.json removed | Premature abstraction — 4 rows of seat mapping don't need a data schema |
+| Scoped package name `@hasankhatib/create-ai-scaffold` | `create-ai-scaffold` was already taken by Kyle Garcia (v2.1.1) |
+| Nested code fence removed from CLAUDE.md template | Breaks markdown rendering inside a markdown block |
+| Version `0.3.0` | Aligns with roadmap — Layer 1 = 0.1.x, Layer 2 = 0.2.x, Layer 3 = 0.3.x |
 
 ## Watch list
 
-- Layer 3 CLI: one runtime dependency max (`@clack/prompts`), must complete in under 5 seconds
-- Demand gate applies before investing in Layer 4 — check stars/usage before starting CI/CD
+- Layer 4 demand gate: check GitHub stars before investing in CI/CD
+- npm create shorthand: `npm create @hasankhatib/ai-scaffold@latest` (note: `create-` prefix is stripped by npm)

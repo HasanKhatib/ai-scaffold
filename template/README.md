@@ -40,7 +40,7 @@ npx degit HasanKhatib/ai-scaffold/template my-project
 
 **npm (interactive init):**
 ```bash
-npm create ai-scaffold@latest
+npm create @hasankhatib/ai-scaffold@latest
 ```
 
 ## After install
