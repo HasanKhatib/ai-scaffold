@@ -38,7 +38,7 @@ Accept only: `1`, `2`, `3`, or `4`. If the answer is anything else, show the lis
 
 **Q3.** What is the primary tension you want the council to hold? (e.g. "speed vs. correctness", "scope vs. sustainability")
 
-**Q4.** What are your AI output boundaries? (e.g. "AI writes only to `src/_generated/`" — press enter to use the default: "AI writes stay within this repo directory")
+**Q4.** What are your AI output boundaries? (e.g. "AI writes only to `src/_generated/`" — type `default` to use: "AI writes stay within this repo directory")
 
 **Q5.** Do you want a memory system scaffold? (yes / no — creates `memory/MEMORY.md` index)
 
@@ -67,7 +67,7 @@ After collecting all answers, write every file below. Use the answers to fill in
 - `{{slot_b_name}}` — Slot B seat name (e.g. "The Engineer")
 - `{{slot_b_file}}` — Slot B filename without extension (e.g. "the-engineer")
 - `{{primary_tension}}` — answer to Q3
-- `{{output_boundaries}}` — answer to Q4 (or default)
+- `{{output_boundaries}}` — answer to Q4; if the user typed `default` or left it blank, use: "AI writes stay within this repo directory"
 - `{{include_memory}}` — yes/no from Q5
 
 ---
