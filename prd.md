@@ -92,6 +92,9 @@ ai-scaffold/
 ├── docs/roadmap.md              ← live phase dashboard (links to PRD for detail)
 ├── packages/
 │   └── create-ai-scaffold/      ← Layer 3 CLI
+├── skills/
+│   └── ai-scaffold/
+│       └── SKILL.md             ← Layer 2 OpenCode skill (global install)
 └── template/                    ← what gets distributed via degit
     ├── AGENTS.md                ← blank with placeholders
     ├── CLAUDE.md                ← blank
@@ -156,21 +159,29 @@ Zero-friction baseline. Works for any tool, no registry needed.
 
 ---
 
-### Layer 2 — Claude Code Skill (highest native value)
+### Layer 2 — OpenCode Skill (highest native value)
 
-An installable `/ai-scaffold` skill that interactively initializes the scaffold in any repo. Users get a personalized, ready-to-use setup in under 60 seconds.
+A globally installable skill that interactively initializes the scaffold in any repo. Users get a personalized, ready-to-use setup in under 60 seconds.
 
-The skill owns its own interview logic inline — 5 questions and seat mapping hardcoded in the skill prompt. It is a different execution context from the CLI and will diverge from it naturally (interactive, no stdout, writes files directly).
+**There is no central skills registry.** Skills are file-based `SKILL.md` files. The skill lives at `skills/ai-scaffold/SKILL.md` in this repo. Users install it globally with one command:
+
+```bash
+npx degit HasanKhatib/ai-scaffold/skills/ai-scaffold ~/.agents/skills/ai-scaffold
+```
+
+This works because OpenCode discovers skills from `~/.agents/skills/<name>/SKILL.md` globally — available for every new project without any per-repo setup. Global install is the only path that makes sense for an init tool: you run it before the scaffold exists in the new repo.
+
+The skill owns its own interview logic inline — 5 questions and seat mapping hardcoded in the `SKILL.md` body. When invoked, the agent runs the interview and writes all scaffold files directly.
 
 **Todos**
 
-- [ ] Research Claude Code skills registry: publishing format, version spec, how `skills-lock.json` tracks installs
-- [ ] Write the skill prompt: runs the 5-question interview inline (questions + seat_map hardcoded), then writes customized `AGENTS.md`, `CLAUDE.md`, `agents/council.md`, the 2 fixed + 2 selected POV files, docs stubs
-- [ ] Rename slot files to remove `slot-a-` / `slot-b-` prefix in the written output (users see `the-shipper.md`, not `slot-a-the-shipper.md`)
-- [ ] Test skill in a blank repo for each project-type combination (app / tooling / research / personal OS)
+- [x] Research OpenCode skills format: file-based SKILL.md, no central registry, global install via degit
+- [ ] Create `skills/ai-scaffold/SKILL.md` with YAML frontmatter (`name`, `description`, `license`, `compatibility`)
+- [ ] Write skill body: 5-question interview hardcoded, seat mapping table, full file content for all scaffold files (AGENTS.md, CLAUDE.md, council.md, 2 fixed + 2 selected POV files, docs stubs, opencode.json)
+- [ ] Rename slot files in written output: strip `slot-a-`/`slot-b-` prefix (users see `the-shipper.md`, not `slot-a-the-shipper.md`)
+- [ ] Test skill installed globally, invoked in a blank repo for all 4 project-type combinations
 - [ ] Test that the result is usable without manual edits in the first AI session
-- [ ] Publish skill to the Claude Code skills registry
-- [ ] Document install command in the scaffold README
+- [ ] Update `template/README.md` — add global install command and usage instructions
 
 ---
 
@@ -225,7 +236,7 @@ One repo, one tag, all distribution channels update automatically.
 |---|---|
 | Layer 1 done | `npx degit hasankhatib/ai-scaffold/template my-project` works; a stranger can read the README and understand the system in 2 minutes |
 | Seat design validated | The scaffold initializes correctly for all 3 example projects (House Viewing Buddy, MCP builder, Green Buildings R&D) without manual edits |
-| Layer 2 done | `/ai-scaffold` installs in a blank repo in under 60 seconds, correct seats chosen automatically |
+| Layer 2 done | Skill installs globally in one command; initializes a blank repo in under 60 seconds with correct seats chosen |
 | Layer 3 done | `npm create ai-scaffold` works end-to-end; published to registry |
 | Validate demand | 10+ GitHub stars or 3+ people using it unprompted → worth investing in Layer 4 + deferred items |
 

@@ -24,19 +24,23 @@ The council has four seats: two universal (The Skeptic, The Editor) and two chos
 
 ## Install
 
-**degit (any AI tool):**
+**OpenCode skill (recommended — interactive init, selects seats automatically):**
 ```bash
-npx degit hasankhatib/ai-scaffold/template my-project
+# Install globally once
+npx degit HasanKhatib/ai-scaffold/skills/ai-scaffold ~/.agents/skills/ai-scaffold
+
+# Then in any new project, invoke the skill
+# The agent runs the 5-question interview and writes all files
+```
+
+**degit (any AI tool — manual seat selection):**
+```bash
+npx degit HasanKhatib/ai-scaffold/template my-project
 ```
 
 **npm (interactive init):**
 ```bash
 npm create ai-scaffold@latest
-```
-
-**Claude Code skill:**
-```
-/ai-scaffold
 ```
 
 ## After install
