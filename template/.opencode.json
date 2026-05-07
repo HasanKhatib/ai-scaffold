@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "council": {
+      "description": "Council deliberation — pressure-tests decisions using your 4 active seats. Read-only: deliberates, does not execute.",
+      "mode": "primary",
+      "prompt": "{file:./agents/council.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "write": "deny"
+      }
+    }
+  }
+}

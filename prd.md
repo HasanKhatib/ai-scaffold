@@ -85,6 +85,7 @@ The repo root uses the scaffold's own live structure — tuned for building a de
 ai-scaffold/
 ├── AGENTS.md                    ← live, tuned for this project
 ├── CLAUDE.md                    ← live
+├── .opencode.json               ← council agent config (live, read-only deliberation)
 ├── agents/council.md            ← live, Skeptic+Editor+Shipper+Engineer
 ├── agents/povs/                 ← live seats (4 active files)
 ├── docs/next.md                 ← live session handoff
@@ -94,6 +95,7 @@ ai-scaffold/
 └── template/                    ← what gets distributed via degit
     ├── AGENTS.md                ← blank with placeholders
     ├── CLAUDE.md                ← blank
+    ├── .opencode.json           ← council agent config (blank, slot notation)
     ├── agents/council.md        ← abstract guardrails, slot notation
     ├── agents/povs/             ← all 9 seat files + README
     ├── agents/templates/        ← decision-packet.md
@@ -126,6 +128,7 @@ Zero-friction baseline. Works for any tool, no registry needed.
 - [ ] Write root `agents/povs/the-shipper.md` and `the-engineer.md` — active variable seats (no slot prefix, these are live)
 - [ ] Write root `docs/next.md` — live session handoff
 - [ ] Write root `docs/roadmap.md` — live phase dashboard linking to `prd.md` for detail (not a duplicate of the PRD)
+- [ ] Write root `.opencode.json` — council agent config: mode `primary`, prompt references `./agents/council.md`, permissions `edit/bash/write: deny`
 
 **Todos — `template/` (distributable)**
 
@@ -147,6 +150,7 @@ Zero-friction baseline. Works for any tool, no registry needed.
 - [ ] Create `template/knowledge/README.md` — explains the load-on-demand pattern; stub files for personal-profile, startup-context, domain-specific context
 - [ ] Write `template/README.md` (≤60 lines): what it is, the 2+2 seat model in one paragraph, install options (template / degit / skill / npm), how to activate the right seats
 - [ ] Add `template/.gitignore` (node_modules, .env, *.db, .DS_Store)
+- [ ] Write `template/.opencode.json` — council agent config: mode `primary`, prompt references `./agents/council.md`, permissions `edit/bash/write: deny`
 - [ ] Tag `v0.1.0`
 - [ ] Verify `npx degit hasankhatib/ai-scaffold/template my-project` works cleanly on a blank machine
 
@@ -211,7 +215,6 @@ One repo, one tag, all distribution channels update automatically.
 ## Deferred (validate demand first)
 
 - **GitHub Action** (`uses: hasankhatib/ai-scaffold-action@v1`) — drift detection and update PRs across repos that adopted the scaffold. Only worth building if teams (not just solo devs) adopt it.
-- **OpenCode plugin** — evaluate after the Claude Code skill ships; the AGENTS.md dispatch pattern probably covers it already.
 - **Web configurator** — UI that generates a zip of customized scaffold files. Only if CLI/skill adoption is strong.
 
 ---
