@@ -1,0 +1,36 @@
+{
+  "name": "create-ai-scaffold",
+  "version": "0.1.0",
+  "description": "Initialize structured AI collaboration in any repo — agent-agnostic dispatch, council deliberation, session handoff.",
+  "type": "module",
+  "bin": {
+    "create-ai-scaffold": "./bin/create-ai-scaffold.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "start": "node bin/create-ai-scaffold.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1"
+  },
+  "keywords": [
+    "ai",
+    "scaffold",
+    "agents",
+    "claude",
+    "opencode",
+    "cursor",
+    "council"
+  ],
+  "author": "hasankhatib",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HasanKhatib/ai-scaffold.git"
+  }
+}
