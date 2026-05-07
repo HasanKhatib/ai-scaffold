@@ -80,27 +80,9 @@ After collecting all answers, write every file below. Use the answers to fill in
 ## Always apply
 
 - Read `CLAUDE.md` before starting any session
-- Update `docs/next.md` at the end of every session
-- Never delete or overwrite core project documents without explicit instruction
-
-## Load on demand
-
-| File | Load when |
-|---|---|
-| `agents/council.md` | A non-trivial decision needs deliberation |
-| `agents/povs/the-skeptic.md` | Loaded automatically with council |
-| `agents/povs/the-editor.md` | Loaded automatically with council |
-| `agents/povs/{{slot_a_file}}.md` | Loaded automatically with council |
-| `agents/povs/{{slot_b_file}}.md` | Loaded automatically with council |
-| `agents/templates/decision-packet.md` | Preparing a council session |
-| `docs/roadmap.md` | Checking phase status or planning next milestone |
-
-## Council invocation triggers
-
-- Any irreversible action (publishing, deleting, deprecating)
-- Autonomous scope expansion beyond the current task
-- External integrations or new dependencies
-- Significant time or cost commitment with unclear return
+- Update `docs/next.md` at the end of every session — summarize where things stand, the immediate next step, open threads, and decisions made
+- Update `docs/roadmap.md` phase status whenever a phase is completed or its status changes
+- No publishing, pushing to remote, or releases without human confirmation
 
 ## Output boundaries
 

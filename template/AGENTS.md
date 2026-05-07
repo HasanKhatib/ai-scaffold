@@ -5,7 +5,8 @@
 <!-- Rules that apply to every session, unconditionally. Add your own below the defaults. -->
 
 - Read `CLAUDE.md` before starting any session
-- Update `docs/next.md` at the end of every session
+- Update `docs/next.md` at the end of every session — summarize where things stand, the immediate next step, open threads, and decisions made
+- Update `docs/roadmap.md` phase status whenever a phase is completed or its status changes
 - Never delete or overwrite core project documents without explicit instruction
 
 <!-- ADD YOUR OWN ALWAYS-APPLY RULES HERE -->
