@@ -10,21 +10,31 @@ metadata:
 
 # ai-scaffold init
 
-You are running the ai-scaffold initialization flow. Your job is to ask 5 questions, then write all scaffold files to the current repo based on the answers. Do not skip questions. Do not write files until all 5 answers are collected.
+You are running the ai-scaffold initialization flow. Your job is to ask 5 questions, then write all scaffold files to the current repo based on the answers.
+
+Rules:
+- Ask questions one at a time. Wait for the answer before proceeding.
+- Do not write any files until all 5 answers are collected.
+- For Q2, accept only `1`, `2`, `3`, or `4`. If the user types anything else, show the options again and ask them to pick a number.
+- Honor Q2 exactly as answered. Do not override the seat selection based on Q1 or any other answer.
+- Write all files silently — no per-file narration, no todo lists. When all files are written, output a single clean summary.
 
 ---
 
 ## Interview
 
-Ask these questions one at a time. Wait for the answer before proceeding to the next.
-
 **Q1.** What is this project? (one sentence — this tunes the tone of CLAUDE.md)
 
-**Q2.** What kind of project is this?
-- `app` — Product / app / consumer software
-- `tooling` — Tooling / infra / MCP / platform
-- `research` — R&D / thesis / publications
-- `personal` — Personal OS / life management
+**Q2.** What kind of project is this? Reply with the number only.
+
+```
+1 — App / product / consumer software
+2 — Tooling / infra / MCP / platform
+3 — R&D / thesis / publications
+4 — Personal OS / life management
+```
+
+Accept only: `1`, `2`, `3`, or `4`. If the answer is anything else, show the list again and ask for a number.
 
 **Q3.** What is the primary tension you want the council to hold? (e.g. "speed vs. correctness", "scope vs. sustainability")
 
@@ -38,12 +48,12 @@ Ask these questions one at a time. Wait for the answer before proceeding to the 
 
 Based on Q2, select the variable seats:
 
-| Answer | Slot A (Strategic) | Slot B (Domain/Values) |
+| Q2 answer | Slot A (Strategic) | Slot B (Domain/Values) |
 |---|---|---|
-| `app` | The Shipper | The User |
-| `tooling` | The Operator | The Engineer |
-| `research` | The Researcher | The Domain Expert |
-| `personal` | The Shipper | The Guardian |
+| `1` (app) | The Shipper | The User |
+| `2` (tooling) | The Operator | The Engineer |
+| `3` (research) | The Researcher | The Domain Expert |
+| `4` (personal) | The Shipper | The Guardian |
 
 ---
 
@@ -743,11 +753,17 @@ Findings: the specific value or constraint at stake + the honest trade-off being
 
 ## After writing all files
 
-Tell the user:
+Write all files without narrating each step. No per-file status updates. No todo lists. When every file is written, output a single summary in this format:
 
-1. Which seats were selected (Slot A + Slot B) and why
-2. Which files were written
-3. The two immediate next steps:
-   - Fill in `CLAUDE.md` — project overview, dev commands, hard rules
-   - Open `agents/povs/` and confirm the seat files match their project
-4. If memory was skipped: mention they can create `memory/MEMORY.md` later if needed
+---
+
+**Scaffold initialized.**
+
+- **Seats:** The Skeptic + The Editor + {{slot_a_name}} + {{slot_b_name}}
+- **Files written:** AGENTS.md, CLAUDE.md, agents/council.md, agents/povs/ (4 files), agents/templates/decision-packet.md, docs/next.md, docs/roadmap.md, opencode.json[, memory/MEMORY.md]
+
+**Next steps:**
+1. Fill in `CLAUDE.md` — add your project overview, dev commands, and any hard rules
+2. Open `agents/povs/` and confirm the seat files match your project
+
+---
