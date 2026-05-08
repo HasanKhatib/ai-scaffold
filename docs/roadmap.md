@@ -8,7 +8,7 @@
 |---|---|---|---|
 | 1 | GitHub Template + degit | ✅ Done | `npx degit HasanKhatib/ai-scaffold/template` works cleanly — `v0.1.1` tagged |
 | 2 | OpenCode Skill | ✅ Done | Skill installs globally, 3/4 project types tested, clean summary output — `v0.2.0` tagged |
-| 3 | npm CLI | 🔵 In progress | `npm create @hasankhatib/ai-scaffold` works end-to-end |
+| 3 | npm CLI | ✅ Done | `npm create @hasankhatib/ai-scaffold` works end-to-end — `v0.3.0` tagged |
 | 4 | CI/CD | ⬜ Not started | One tag publishes all distribution channels |
 
 ## Demand gate
@@ -17,7 +17,7 @@
 
 ## Current focus
 
-Layer 3 — `npm create @hasankhatib/ai-scaffold` CLI: 5-question interview, generates `SCAFFINIT.md` prompt for the user's LLM.
+Layer 4 — CI/CD. Gated on demand: 10+ GitHub stars or 3+ unprompted users before investing.
 
 ## Deferred
 
